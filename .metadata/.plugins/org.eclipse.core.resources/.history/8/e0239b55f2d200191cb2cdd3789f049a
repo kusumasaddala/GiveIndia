@@ -1,0 +1,36 @@
+package com.giveindia.page;
+
+import org.openqa.selenium.WebDriver;
+
+import com.giveindia.base.Connection;
+
+public class LoginPage extends Connection{
+	
+	WebDriver driver;
+
+	//define locators / OR - with By locator (NPF pattern):
+	By emailId = By.id("username");
+	By password = By.id("password");
+	By loginButton = By.id("loginBtn");
+	
+	//constructor of page class:
+	public LoginPage(WebDriver driver){
+		this.driver = driver;
+		elementUtil = new ElementUtil(driver);
+	}
+	
+	//page actions:
+	public String getLoginPageTitle(){
+		return elementUtil.waitForPageTitle(Constants.LOGIN_PAGE_TITLE);
+	}
+	
+	public HomePage logi(String username, String pwd){
+		elementUtil.doSendKeys(emailId, username);
+		elementUtil.doSendKeys(password, pwd);
+		elementUtil.doClick(loginButton);
+		
+		return new HomePage(driver);
+	}
+	
+
+}

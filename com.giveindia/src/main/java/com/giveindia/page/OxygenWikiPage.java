@@ -1,0 +1,59 @@
+package com.giveindia.page;
+
+import java.io.File;
+import java.io.IOException;
+import org.apache.commons.io.FileUtils;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import com.giveindia.base.Connection;
+import com.google.common.io.Files;
+
+public class OxygenWikiPage extends Connection {
+
+	WebDriver driver;
+	
+	By externalLinks = By.xpath("//th[text()='Physical properties']");
+	By elementsLinks = By.xpath("/th[text()='Atomic properties']");
+
+
+	public OxygenWikiPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+
+	public void scrollToElement(WebElement ele) {
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ele);
+
+	}
+
+	public void getScreenshot() {
+		
+		// Take screenshot and store as a file format
+		File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		try {
+		 // now copy the  screenshot to desired location using copyFile //method
+		FileUtils.copyFile(src, new File("C:/selenium/error.png"));
+		}
+		 
+		catch (IOException e)
+		 {
+		  System.out.println(e.getMessage());
+		 
+		 }
+
+	}
+	
+	public void () {
+
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.giveindia.page;
+
+import org.openqa.selenium.WebDriver;
+
+import com.giveindia.base.Connection;
+
+public class OxygenWikiPage extends Connection{
+	
+	WebDriver driver;
+
+
+	public OxygenWikiPage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+
+}

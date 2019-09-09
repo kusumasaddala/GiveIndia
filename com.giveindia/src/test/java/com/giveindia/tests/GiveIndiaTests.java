@@ -1,0 +1,69 @@
+package com.giveindia.tests;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import com.giveindia.base.Connection;
+import com.giveindia.page.OxygenWikiPage;
+import com.giveindia.page.WikiHomePage;
+
+import bsh.org.objectweb.asm.Constants;
+
+public class GiveIndiaTests {
+
+	WebDriver driver;
+	Properties prop;
+	Connection connection;
+	WikiHomePage homePage;
+
+	@BeforeMethod
+	public void setUp() {
+		connection = new Connection();
+		prop = connection.initialize_properties();
+		driver = connection.initialize_driver(prop);
+
+	}
+
+	@Test(priority = 1)
+	public void verifyHomePageTitleTest() {
+		String title = homePage.getHomePageTitle();
+		System.out.println("home page title is: " + title);
+		Assert.assertEquals(title, "Selenium - Wikipedia");
+	}
+
+	@Test(priority = 2)
+	public void verifyExternalLinksrTest() {
+		List<String> listOfPageTitles = new ArrayList<String>();
+		listOfPageTitles.add("Selenium Video - The Periodic Table of Videos - University of Nottingham");
+		listOfPageTitles.add("Selenium — Health Professional Fact Sheet");
+		listOfPageTitles.add("ATSDR - Page Not Found | ATSDR");
+		listOfPageTitles.add("CDC - NIOSH Pocket Guide to Chemical Hazards - Selenium");
+		listOfPageTitles.add("34. Selenium - Elementymology & Elements Multidict");
+
+		List<String> titles = homePage.clickOnExternalLinks();
+
+		Assert.assertTrue(titles.containsAll(listOfPageTitles));
+	}
+
+	@Test(priority = 3)
+	public void clickOnOxygenLinkTest() {		
+		OxygenWikiPage oxygenPage = homePage.clickOnPeriodicTableElementTitles("Oxygen");
+		
+		Assert.assertEquals(oxygenPage.getPageTitle(), "Oxygen - Wikipedia");
+	}
+	
+	@Test(priority = 4)
+	public void clickOnOxygenLinkTest() {		
+		OxygenWikiPage oxygenPage = homePage.clickOnPeriodicTableElementTitles("Oxygen");
+		
+		Assert.assertEquals(oxygenPage.getPageTitle(), "Oxygen - Wikipedia");
+	}
+	
+
+}

@@ -1,0 +1,20 @@
+package com.giveindia.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.giveindia.base.Connection;
+
+public class WikiHomePage extends Connection {
+
+	WebDriver driver;
+
+	public WikiHomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public String getHomePageTitle() {
+		return driver.getTitle();
+	}
+
+}

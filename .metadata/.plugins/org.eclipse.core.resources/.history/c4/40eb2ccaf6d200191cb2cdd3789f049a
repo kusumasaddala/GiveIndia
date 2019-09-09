@@ -1,0 +1,22 @@
+package com.giveindia.page;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.giveindia.base.Connection;
+
+public class WikiHomePage extends Connection {
+
+	WebDriver driver;
+	
+	By externalLinks=By.xpath("//span[@id='External_links']//parent::h2//following-sibling::ul/li/a");
+
+	public WikiHomePage(WebDriver driver) {
+		this.driver = driver;
+	}
+
+	public String getHomePageTitle() {
+		return driver.getTitle();
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.giveindia.page;
+
+import com.giveindia.base.Connection;
+
+public class WikiHomePage extends Connection{
+	
+	
+
+}
