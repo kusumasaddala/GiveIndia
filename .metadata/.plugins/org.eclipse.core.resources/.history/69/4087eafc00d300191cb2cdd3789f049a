@@ -59,9 +59,8 @@ public class GiveIndiaTests {
 	}
 	
 	@Test(priority = 4)
-	public void takeScreenshotOfPropertiesTest() {	
-		OxygenWikiPage oxygenPage = homePage.clickOnPeriodicTableElementTitles("Oxygen");
-		oxygenPage.takeScreenshotOfProperties();
+	public void takeScreenshotOfPropertiesTest() {		
+		OxygenWikiPage oxygenPage = homePage.takeScreenshotOfProperties();
 		
 		
 	}

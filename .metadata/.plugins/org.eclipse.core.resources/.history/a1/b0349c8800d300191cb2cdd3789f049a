@@ -59,11 +59,10 @@ public class GiveIndiaTests {
 	}
 	
 	@Test(priority = 4)
-	public void takeScreenshotOfPropertiesTest() {	
+	public void takeScreenshotOfPropertiesTest() {		
 		OxygenWikiPage oxygenPage = homePage.clickOnPeriodicTableElementTitles("Oxygen");
-		oxygenPage.takeScreenshotOfProperties();
 		
-		
+		Assert.assertEquals(oxygenPage.getPageTitle(), "Oxygen - Wikipedia");
 	}
 	
 

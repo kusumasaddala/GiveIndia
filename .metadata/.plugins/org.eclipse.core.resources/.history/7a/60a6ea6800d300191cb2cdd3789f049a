@@ -39,7 +39,8 @@ public class OxygenWikiPage extends Connection {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			// now copy the screenshot to desired location using copyFile
-			FileUtils.copyFile(src, new File("C:/selenium/error.png"));
+			// //method
+			// FileUtils.copyFile(src, new File("C:/selenium/error.png"));
 		}
 
 		catch (IOException e) {
@@ -49,10 +50,8 @@ public class OxygenWikiPage extends Connection {
 
 	}
 
-	public void takeScreenshotOfProperties() {
-		scrollToElement(driver.findElement(properties));
-
-		getScreenshot();
+	public void takeScreenshotOfproperties() {
+		scrollToElement(properties);
 
 	}
 

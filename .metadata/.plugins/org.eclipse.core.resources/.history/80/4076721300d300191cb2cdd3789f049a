@@ -17,8 +17,10 @@ import com.google.common.io.Files;
 public class OxygenWikiPage extends Connection {
 
 	WebDriver driver;
+	
+	By externalLinks = By.xpath("//th[text()='Physical properties']");
+	By elementsLinks = By.xpath("/th[text()='Atomic properties']");
 
-	By properties = By.xpath("/th[text()='Atomic properties']");
 
 	public OxygenWikiPage(WebDriver driver) {
 		this.driver = driver;
@@ -34,25 +36,23 @@ public class OxygenWikiPage extends Connection {
 	}
 
 	public void getScreenshot() {
-
+		
 		// Take screenshot and store as a file format
-		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File src= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
-			// now copy the screenshot to desired location using copyFile
-			FileUtils.copyFile(src, new File("C:/selenium/error.png"));
+		 // now copy the  screenshot to desired location using copyFile //method
+		FileUtils.copyFile(src, new File("C:/selenium/error.png"));
 		}
-
-		catch (IOException e) {
-			System.out.println(e.getMessage());
-
-		}
+		 
+		catch (IOException e)
+		 {
+		  System.out.println(e.getMessage());
+		 
+		 }
 
 	}
-
-	public void takeScreenshotOfProperties() {
-		scrollToElement(driver.findElement(properties));
-
-		getScreenshot();
+	
+	public void () {
 
 	}
 
